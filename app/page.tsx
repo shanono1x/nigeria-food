@@ -33,7 +33,7 @@ export default function Home() {
       <p>Discover delicious Nigerian food.</p>
       
       <h2> Popular Nigerian Foods</h2>
-      <div>
+      <div className="food-grid">
         <div>
           <h3>Jollof Rice</h3>
           <p>Delicious Nigerian-style jollof rice.</p>
