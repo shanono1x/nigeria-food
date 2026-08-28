@@ -8,7 +8,26 @@ export default function Home() {
   >([]);
 
   return (
-    <main>
+  <main>
+   <header>
+      <h1>Nigeria Food</h1>
+
+      <nav>
+        <a href="/">Home</a>
+        <a href="#foods">Foods</a>
+        <a href="#cart">Cart</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Delicious Nigerian Food, Delivered</h2>
+      <p>Discover your favourite Nigerian meals.</p>
+
+      <input
+        type="text"
+        placeholder="Search for food..."
+      />
+    </section>
       <section>
       <h1>Nigeria Food</h1>
       <p>Discover delicious Nigerian food.</p>
@@ -163,6 +182,5 @@ export default function Home() {
         {cart.reduce((total, item) => total + item.price * item.quantity, 0).toLocaleString()}
       </p>
     </main>
-
-  );
+ );
 }
