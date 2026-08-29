@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function Home() {
   const [search, setSearch] = useState("")
   const [checkout, setCheckout] = useState(false);
+  const [orderPlaced, setOrderPlaced] = useState(false);
   const [cart, setCart] = useState<
     {name: string; price: number; quantity: number }[]
   >([]);
@@ -217,11 +218,15 @@ function removeFromCart(name: string) {
           <p>Ready to place your order?</p>
 
           <button
-            onClick={() => alert("Order placed successfully!")}>
+            onClick={() => setOrderPlaced(true)}
+          >
             Place Order
           </button>
 
-          
+          {orderPlaced && (
+            <p>Order placed successfully! 🎉</p>
+          )}
+
         </section>
       )}
     </main>
