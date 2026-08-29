@@ -31,6 +31,21 @@ export default function Home() {
     }
   ];
 
+  const restaurants = [
+    {
+      name: "Frenchies Restaurant",
+      location: "Kano",
+    },
+    {
+      name: "Arewa Kitchen",
+      location: "Kano",
+    },
+    {
+      name: "Taste of Nigeria",
+      location: "Abuja",
+    },
+  ]
+
   const filteredFoods = foods.filter((food) =>
     food.name.toLowerCase().includes(search.toLowerCase())
 );
@@ -179,6 +194,7 @@ function removeFromCart(name: string) {
           </div>
         )}
       </section>
+      
 
       {checkout && (
         <section>

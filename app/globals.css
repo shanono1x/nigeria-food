@@ -270,6 +270,8 @@ section:first-of-type input:focus {
   padding: 30px;
   border-radius: 16px;
   background: #f7f7f7;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #cart > div > div {
