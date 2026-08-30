@@ -146,7 +146,7 @@ section:nth-of-type(2) h3 {
   margin-top: 0;
 }
 
-secttion::nth-of-type(2) button {
+section::nth-of-type(2) button {
   padding: 12px 22px;
   border: none;
   border-radius: 8px;
@@ -158,7 +158,7 @@ secttion::nth-of-type(2) button {
 
 .food-grid {
   display: grid;
-  grid-template-columns: repeat(3 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
   max-width: 1000px;
@@ -338,3 +338,4 @@ section:first-of-type input:focus {
 #cart + section p {
   margin-top: 12px;
 }
+
