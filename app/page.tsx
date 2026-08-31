@@ -9,24 +9,25 @@ export default function Home() {
   const [cart, setCart] = useState<
     {name: string; price: number; quantity: number }[]
   >([]);
+const [selectedRestaurant, setSelectedRestaurant] = useState("");
 
   const foods = [
     {
       name: "Jollof Rice",
       price: 3500,
-      image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b",
+      image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=800&q=80",
       description: "Delicious Nigerian-style jollof rice.",
     },
     {
       name: "chicken",
       price: 4000,
-      image: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6",
+      image: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=800&q=80",
       description: "Juicy and well-seasonedchicken.",
     },
     {
       name: "Fried Rice",
       price: 3500,
-      image: "https://images.unsplash.com/photo-1512058564366-18510be2db19",
+      image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80",
       description: "Delicious Nigerian-style fried rice.",
     }
   ];
@@ -115,8 +116,77 @@ function removeFromCart(name: string) {
         />
       </section>
 
+       <section id="restaurants">
+        <h2>Choose a Restaurant</h2>
+
+        <div className="restaurant-grid">
+          <div 
+            className="restaurant-card"
+            onClick={() => setSelectedRestaurant("Frenchies Restaurant")}
+          >
+            <h3>Frenchies Restaurant</h3>
+            <p>kano</p>
+
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedRestaurant("Frenchies Restaurant");
+              }}
+            >
+              View Menu
+            </button>
+          </div>
+
+          <div 
+            className="restaurant-card"
+            onClick={() => setSelectedRestaurant("Arewa Kitchen")}
+          >
+            <h3>Arewa Kitchen</h3>
+            <p>kano</p>
+
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedRestaurant("Arewa Kitchen");
+              }}
+            >
+              View Menu
+            </button>
+          </div>
+
+          <div 
+            className="restaurant-card"
+            onClick={() => setSelectedRestaurant("Taste of Nigeria")}
+          >
+            <h3>Taste of Nigeria</h3>
+            <p>Abuja</p>
+
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedRestaurant("Taste of Nigeria");
+              }}
+            >
+              View Menu 
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div className="shop-layout">
+
       <section id="foods">
-        <h2>Popular Nigerian Foods</h2>
+        <h2>
+          {selectedRestaurant
+            ? `${selectedRestaurant} - Menu`
+            : "Popular Nigerian Foods"}
+        </h2>
+
+        {selectedRestaurant && (
+          <p className="selected-restaurant">
+            You are ordering from {selectedRestaurant} 
+          </p>
+        )}
 
         <div className="food-grid">
           {filteredFoods.map((food) => (
@@ -139,6 +209,7 @@ function removeFromCart(name: string) {
           ))}         
         </div>
       </section>
+      </div>
 
       <section id="cart">
         <h2>Cart</h2>
