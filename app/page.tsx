@@ -1,6 +1,14 @@
 "use client"
 
+import { restaurants } from "./data/restaurants";
 import { useState } from "react";
+
+type Food = {
+  name: string;
+  price: number;
+  image: string;
+  description: string;
+};
 
 export default function Home() {
   const [search, setSearch] = useState("")
@@ -11,7 +19,7 @@ export default function Home() {
   >([]);
 const [selectedRestaurant, setSelectedRestaurant] = useState("");
 
-  const foods = [
+  const foods: Food[] = [
     {
       name: "Jollof Rice",
       price: 3500,
@@ -32,22 +40,60 @@ const [selectedRestaurant, setSelectedRestaurant] = useState("");
     }
   ];
 
-  const restaurants = [
-    {
-      name: "Frenchies Restaurant",
-      location: "Kano",
-    },
-    {
-      name: "Arewa Kitchen",
-      location: "Kano",
-    },
-    {
-      name: "Taste of Nigeria",
-      location: "Abuja",
-    },
-  ]
+  const restaurantMenus = {
+    "Frenchies Restaurant": [
+      {
+        name: "Jollof Rice",
+        price: 3500,
+        image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b",
+        description: "Delicious Nigerian-style jollof rice."
+      },
+      {
+        name: "Grilled Chicken",
+        price: 4500,
+        image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435",
+        description: "Juicy and well-seasoned grilled chicken."
+      },
+    ],
 
-  const filteredFoods = foods.filter((food) =>
+    "Arewa Kitchen": [
+      {
+        name: "tuwo Shinkafa",
+        price: 3000,
+        image: "https://images.unsplash.com/photo-1512058564366-18510be2db19",
+        description: "Traditional northern Nigerian tuwo."
+      },
+      {
+        name: "Miyan Kuka",
+        price: 3500,
+        image: "https://images.unsplash.com/photo-1547592180-85f1f3990554",
+        description: "Traditional northern Nigerian soup."
+      },
+    ],
+
+    "Taste of Nigeria": [
+      {
+        name: "Fried Rice",
+        price: 3500,
+        image: "https://images.unsplash.com/photo-1512058564366-18510be2db19",
+        description: "Flavourful Nigerian-style fried rice."
+      },
+      {
+        name: "Pepper Chicken",
+        price: 4000,
+        image: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6",
+        description: "Tender chicken cooked with a rich pepper sauce."
+      },   
+    ],
+  };
+
+  const currentMenu = selectedRestaurant
+    ? restaurants.find(
+        (restaurant) => restaurant.name === selectedRestaurant
+      )?.menu || []
+    : foods;
+    
+  const filteredFoods = currentMenu.filter((food) =>
     food.name.toLowerCase().includes(search.toLowerCase())
 );
 
@@ -120,56 +166,25 @@ function removeFromCart(name: string) {
         <h2>Choose a Restaurant</h2>
 
         <div className="restaurant-grid">
+          {restaurants.map((restaurant) => (
           <div 
             className="restaurant-card"
-            onClick={() => setSelectedRestaurant("Frenchies Restaurant")}
+            key={restaurant.id}
+            onClick={() => setSelectedRestaurant(restaurant.name)}
           >
-            <h3>Frenchies Restaurant</h3>
-            <p>kano</p>
+            <h3>{restaurant.name}</h3>
+            <p>{restaurant.location}</p>
 
             <button 
               onClick={(e) => {
                 e.stopPropagation();
-                setSelectedRestaurant("Frenchies Restaurant");
+                setSelectedRestaurant(restaurant.name);
               }}
             >
               View Menu
             </button>
           </div>
-
-          <div 
-            className="restaurant-card"
-            onClick={() => setSelectedRestaurant("Arewa Kitchen")}
-          >
-            <h3>Arewa Kitchen</h3>
-            <p>kano</p>
-
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedRestaurant("Arewa Kitchen");
-              }}
-            >
-              View Menu
-            </button>
-          </div>
-
-          <div 
-            className="restaurant-card"
-            onClick={() => setSelectedRestaurant("Taste of Nigeria")}
-          >
-            <h3>Taste of Nigeria</h3>
-            <p>Abuja</p>
-
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedRestaurant("Taste of Nigeria");
-              }}
-            >
-              View Menu 
-            </button>
-          </div>
+          ))}
         </div>
       </section>
 
