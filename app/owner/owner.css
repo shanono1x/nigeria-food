@@ -1,0 +1,208 @@
+.owner-dashboard {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    color: #1d1d1d;
+    font-family: Arial, sans-serif;
+}
+
+.owner-dashboard h1 {
+    color: #1d1d1d;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.owner-dashboard h2 {
+    color: #1d1d1d;
+    font-size: 26px;
+    margin: 35px 0 20px;
+}
+
+.owner-dashboard h3 {
+    color: #1d1d1d;
+    font-size: 20px;
+}
+
+.owner-dashboard section {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: white;
+    border: 1px solid #e5e1d8;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+    text-align: left;
+}
+
+.owner-dashboard input,
+.owner-dashboard textarea {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    margin: 12px 0;
+    padding: 13px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    color: #1d1d1d;
+    font-size: 16px;
+}
+
+.owner-dashboard button {
+    margin: 6px 8px 6px 0;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 25px;
+    background: #e85d04;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.owner-dashboard button:hover {
+    background: #c94f03;
+}
+
+.owner-dashboard img {
+    width: 100%;
+    max-width: 240px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 10px 0;
+}
+
+@media (max-width: 600px) {
+    .owner-dashboard {
+        padding: 20px 12px;
+    }
+
+    .owner-dashboard section {
+        padding: 18px;
+    }
+
+    .owner-dashboard h1 {
+        font-size: 28px;
+    }
+
+    .owner-dashboard button {
+        max-width: 100%;
+    }
+}
+
+.owner-dashboard img {
+    display: block;
+    object-fit: cover;
+}
+
+.owner-dashboard section > div {
+    margin-bottom: 18px;
+}
+
+.owner-dashboard section > div > div {
+    padding: 18px;
+    margin: 14px 0;
+    background: #faf8f3;
+    border: 1px solid #e5e1d8;
+    border-radius: 14px;
+}
+
+.owner-dashboard section > div > div p {
+    color: #444;
+    line-height: 1.6;
+}
+
+.owner-dashboard img {
+    width: 180px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.owner-dashboard section > div > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.owner-dashboard section > div > div h3 {
+    min-width: 150px;
+}
+
+.owner-dashboard section > div > div button {
+    margin: 5px;
+}
+
+.owner-dashboard input:focus,
+.owner-dashboard textarea:focus {
+    border-color: #e85d04;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(232, 93, 4, 0.15);
+}
+
+.owner-dashboard input[type="file"] {
+    max-width: 100%;
+    padding: 12px;
+    background: #faf8f3;
+    border: 1px dashed #e85d04;
+    border-radius: 12px;
+}
+
+.owner-dashboard input::placeholder,
+.owner-dashboard textarea::placeholder {
+    color: #777;
+}
+
+.owner-dashboard input[type="file"] {
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+.owner-dashboard input:not([type="file"]),
+.owner-dashboard textarea {
+    width: 100%;
+    max-width: 500px;
+    margin: 12px 0;
+    padding: 14px;
+    box-sizing: border-box;
+}
+
+.owner-dashboard input[type="file"] {
+    margin: 12px 0;
+}
+
+.owner-dashboard section:has(h2) {
+    overflow-wrap: anywhere;
+}
+
+.owner-dashboard section h2 {
+    border-bottom: 2px solid #f0e7dc;
+    padding-bottom: 12px;
+}
+
+.owner-dashboard section button {
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.owner-dashboard section button:hover {
+    transform: translateY(-2px);
+}
+
+body {
+    background: #f4f1ea;
+}
+
+.owner-dashboard {
+    min-height: 100vh;
+}
+
+.owner-dashboard button {
+    transition: background 0.2 ease, transform 0.2 ease;
+}
+
+.owner-dashboard button {
+    transform: translateY(-2px);
+}
