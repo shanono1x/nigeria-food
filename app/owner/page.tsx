@@ -244,7 +244,7 @@ export default function OwnerDashboard() {
                 </div>
             ))}
 
-            <section>
+            <section id="orders">
                 <h2>Orders</h2>
 
                 <button
